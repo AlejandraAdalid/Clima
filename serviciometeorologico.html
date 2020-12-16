@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Meteorologico Nacional</title>
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="serviciometeorologico.css">
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    <section>
+
+    </section>
+
+  <!-- Agrego URL del REST -->
+  <!-- Envio el Request    -->
+
+  <script>
+    const header = document.querySelector('header');
+    const section = document.querySelector('section');
+
+    const requestURL = 'https://ws.smn.gob.ar/map_items/forecast/1';
+    const request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    
+
+    request.onload = function() {
+      const localidades = request.response;
+      for(var i=0; i <= 200; i++ )
+        {
+        if(localidades[i]['name']="Rosario")
+          {
+            console.log(localidades[i]['name']);
+          }
+        }
+      
+    }
+    
+  </script>
+</body>
+</html>
